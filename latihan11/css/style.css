@@ -1,0 +1,139 @@
+/* Font */
+@font-face {
+    font-family: 'BebasNeue';
+    src: url(../font/BebasNeue-Regular.woff) format('woff');
+}
+
+/* Style Utama */
+body {
+    font: 18px/36px 'BebasNeue', 'Arial Narrow';
+    background-color: lightslategrey;
+}
+
+h1 {
+    font-size: 80px;
+    margin: 50px 0;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.container {
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
+    border-radius: 10px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 5px solid lightslategrey;
+    float: left;
+    margin: 10px;
+    position: relative;
+}
+
+.gallery li,
+.gallery li span {
+    border-radius: 50%;
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(200,200,200,0.5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ddd;
+    opacity: 0;
+    transition: .3s;
+}
+
+.gallery li a:hover span{
+    opacity: 1;
+}
+
+.clear {
+    clear: both;
+}
+
+/* overlay */
+.overlay {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0);
+    z-index: 9999;
+    transition: .7s;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    border-radius: 10px;
+}
+
+.overlay:target img {
+    animation: fadeOut 1s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -24px;
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    border: 1px solid white;
+    line-height: 20px;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.overlay:target .close {
+    animation: fadeOut 1s;
+}
+
+/* animasi */
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
